@@ -1,0 +1,19 @@
+NAME = DiamondTrap
+CC = c++
+RM = rm -f
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow #-Wno-shadow
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean $(NAME)
