@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 18:29:08 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 08:14:54 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int Form::getGrade()
     return _grade;
 }
 
-int Form::GetRequiredGrade()
+int Form::getRequiredGrade()
 {
     return _requiredGrade;
 }
@@ -75,5 +75,8 @@ void Form::beSigned(Bureaucrat* bur)
 
 std::ostream& operator<<(std::ostream& o, Form& form)
 {
-    return (o << "Form named " << form.getName() << ", the required Grade is: " << form.GetRequiredGrade());
+    return (o << "Form named " << form.getName()
+        << ", the required Grade to sign is: " << form.getGrade()
+        << ", the reaquired Grade to execute is: " << form.getRequiredGrade()
+        << "Signature: " << form.getSigned());
 }

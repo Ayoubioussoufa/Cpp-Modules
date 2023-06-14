@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 17:24:41 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 09:32:45 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int main(void)
     }
     catch (const Bureaucrat::GradeTooHighException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     try
     {
@@ -34,11 +34,11 @@ int main(void)
     }
     catch (const Bureaucrat::GradeTooHighException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     try
     {
@@ -46,10 +46,10 @@ int main(void)
     }
     catch (const Bureaucrat::GradeTooHighException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     catch (const Bureaucrat::GradeTooLowException& e)
     {
-        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
 }

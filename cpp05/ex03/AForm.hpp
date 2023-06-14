@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 08:14:03 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 09:52:43 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <iostream>
+#include <fstream>
+
 class Bureaucrat;
 
-class Form
+class AForm
 {
     private:
         std::string _name;
@@ -33,16 +36,18 @@ class Form
                     return "Grade is too low";
                 } 
             };
-        Form();
-        Form(std::string name, int grade, int requiredGrade);
-        Form(const Form& form);
-        Form& operator=(const Form& form);
-        std::string const getName();
-        int getSigned();
+        AForm();
+        AForm(std::string name, int grade, int requiredGrade);
+        AForm(const AForm& AForm);
+        AForm& operator=(const AForm& AForm);
+        std::string const getName() const;
+        int getSigned() const;
         int getGrade();
         int getRequiredGrade();
         void beSigned(Bureaucrat* bur);
-        ~Form();
+        virtual void execute(Bureaucrat const & executor) const = 0;
+        void beSignedConst(Bureaucrat* bur) const;
+        ~AForm();
 };
 
-std::ostream& operator<<(std::ostream& o, Form& form);
+std::ostream& operator<<(std::ostream& o, AForm& form);
