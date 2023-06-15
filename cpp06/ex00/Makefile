@@ -1,8 +1,8 @@
-NAME = ClapTrap
+NAME = Scalar
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

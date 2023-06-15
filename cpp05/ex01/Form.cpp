@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 08:14:54 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:01:06 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ Form::~Form()
     std::cout << "Destructor called" << std::endl;
 }
 
-void Form::beSigned(Bureaucrat* bur)
+void Form::beSigned(const Bureaucrat& bur)
 {
-    if (bur->getGrade() <= _requiredGrade)
+    if (bur.getGrade() <= _requiredGrade)
         _signed = true;
     else
         throw GradeTooLowException();

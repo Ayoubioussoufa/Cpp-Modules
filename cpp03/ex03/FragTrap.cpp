@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:33:37 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 15:13:51 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:08:00 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->_energyPoints = 100;
     this->_attackDamage = 30;
     _name = name;
-    std::cout << "FragTrap " << _name << " constructed." << std::endl;
+    std::cout << "Parametrized FragTrap " << _name << " constructed." << std::endl;
 }
 
 FragTrap::~FragTrap()

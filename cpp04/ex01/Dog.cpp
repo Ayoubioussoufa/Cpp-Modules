@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:25 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 16:55:38 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:07:40 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Dog::Dog(const Dog& other)
 {
     _brain = new Brain;
     _brain = other._brain;
+    this->setType();
     std::cout << "Dog copy constructor called" << std::endl;
 }
 

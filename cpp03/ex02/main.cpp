@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:11:07 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 14:36:52 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:40:10 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int main()
 {
-    // ScavTrap ash( "Ash" );
-    // ScavTrap ash2( ash );
+    ScavTrap ash( "Ash" );
+    ScavTrap ash2( ash );
     FragTrap p("7md");
 
-    // ash.attack( "the air" );
-    // ash.takeDamage( 10 );
-    // ash.beRepaired( 10 );
-    // ash.guardGate();
-    // ash.guardGate();
+    ash.attack( "the air" );
+    ash.takeDamage( 10 );
+    ash.beRepaired( 10 );
+    ash.guardGate();
+    ash.guardGate();
     p.attack("earth");
     p.highFivesGuys();
 }

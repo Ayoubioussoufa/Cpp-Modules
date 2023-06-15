@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 18:28:02 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:59:19 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ Bureaucrat::~Bureaucrat()
 void Bureaucrat::signForm(Form& form)
 {
     try {
-        form.beSigned(this);
+        form.beSigned(*this);
         std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch (const Form::GradeTooLowException& e) {

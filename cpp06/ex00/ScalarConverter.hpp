@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 18:11:07 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 15:24:35 by aybiouss         ###   ########.fr       */
+/*   Created: 2023/06/15 13:23:57 by aybiouss          #+#    #+#             */
+/*   Updated: 2023/06/15 13:24:22 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#pragma once
+#include <iostream>
 
-int main()
+class ScalarConverter
 {
-    ScavTrap ash( "Ash" );
-    FragTrap pe("7md");
-    DiamondTrap s("plop");
-
-    s.attack("dog");
-    ash.attack("dog");
-    pe.attack("dog");
-    s.whoAmI();
-    s.highFivesGuys();
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
-    ash.guardGate();
-    s.attack("earth");
-    pe.highFivesGuys();
-}
+    private:
+    
+    public:
+    
+};

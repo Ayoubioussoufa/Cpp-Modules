@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 08:14:03 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:00:58 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Form
         int getSigned();
         int getGrade();
         int getRequiredGrade();
-        void beSigned(Bureaucrat* bur);
+        void beSigned(const Bureaucrat& bur);
         ~Form();
 };
 

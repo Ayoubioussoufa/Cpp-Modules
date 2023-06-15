@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:56:08 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 15:52:01 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:59:37 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Animal
         std::string _type;
     public:
         Animal();
-        ~Animal();
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
         virtual void    makeSound() const;
         virtual std::string    getType() const;
+        virtual ~Animal();
 };

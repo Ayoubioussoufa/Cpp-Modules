@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:32 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 16:52:46 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:06:40 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Cat::Cat(const Cat& other)
 {
     _brain = new Brain;
     _brain = other._brain;
+    this->setType();
     std::cout << "Cat copy constructor called" << std::endl;
 }
 

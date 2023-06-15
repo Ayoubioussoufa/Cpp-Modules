@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:32 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 16:13:31 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:58:49 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void    Cat::makeSound() const
 
 Cat::~Cat()
 {
-    std::cout << "Dog Destroyed" << std::endl;
+    std::cout << "Cat Destroyed" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:33:46 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 17:23:19 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:38:42 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class FragTrap : public ClapTrap
 {
-    private:
-        std::string _name;
     public:
         FragTrap();
         FragTrap(std::string name);
