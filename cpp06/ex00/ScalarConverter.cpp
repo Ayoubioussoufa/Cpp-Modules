@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:49 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 14:26:41 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:56:27 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,147 +46,156 @@ char ScalarConverter::_charValue = '\0';
 // }
 
 void ScalarConverter::parseType(std::string str) {
-    if (!str.compare("-inff") || !str.compare("+inff")) {
-        ;
+    if (!str.compare("-inff") || !str.compare("-inf")) {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "-inff"  << std::endl;
+        std::cout << "double: " << "-inf" << std::endl;;
     }
-    else if (!str.compare("nanf")) {
-        ;
+    else if (!str.compare("nanf") || !str.compare("nan")) {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "nanf" << std::endl;
+        std::cout << "double: " << "nan" << std::endl;
     }
-    else if (!str.compare("-inf") || !str.compare("+inf")) {
-        ;
+    else if (!str.compare("+inff") || !str.compare("+inf")) {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << "+inff"  << std::endl;
+        std::cout << "double: " << "+inf" << std::endl;;
     }
-    else if (!str.compare("nan")) {
-        ;
-    }
-    int i = 0;
-    int j = 0;
-    int k = 0;
-    int c = 0;
-    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+    else
     {
-        if (!isdigit(*it))
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int c = 0;
+        for (std::string::iterator it = str.begin(); it != str.end(); ++it)
         {
-            if (*it == '.' && static_cast<int>(std::distance(str.begin(), it)) > 0)
-                k++;
-            else if (*it == '+' || *it == '-' || isdigit(*it))
-                i++;
-            else if (*it == 'f' && k > 0)
-                j++;
-            else if (str.size() == 3 && str[0] == '\'' && str[2] == '\'')
-                c++;
+            if (!isdigit(*it))
+            {
+                if (*it == '.' && static_cast<int>(std::distance(str.begin(), it)) > 0)
+                    k++;
+                else if (*it == '+' || *it == '-' || isdigit(*it))
+                    i++;
+                else if (*it == 'f' && k > 0)
+                    j++;
+                else if (str.size() == 3 && str[0] == '\'' && str[2] == '\'')
+                    c++;
+            }
         }
-    }
-    if (i > 1 || k > 1 || j > 1)
-    {
-        //error or character ?
-        // std::cout << "WOOOOOOOWerror" << std::endl;
-        std::cout << "Error" << std::endl;
-    }
-    else if (j == 1 && k == 1 && i <= 1)
-    {
-        //float
-        _floatValue = std::stof(str);
-        _intValue = static_cast<int>(_floatValue);
-        _doubleValue = static_cast<double>(_floatValue);
-        _charValue = static_cast<char>(_floatValue);
-        std::cout << "char: ";
-        if (isprint(_charValue)) {
-            std::cout << "'" << _charValue << "'" << std::endl;
-        } else {
-            std::cout << "Conversion not displayable" << std::endl;
-        }
-        std::cout << "int: ";
-        if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
-            std::cout << _intValue << std::endl;
-        } else {
-            std::cout << "Conversion not representable by int" << std::endl;
-        }
-        std::string numberStr = std::to_string(_floatValue);
-        if (!numberStr.find("."))
+        if (i > 1 || k > 1 || j > 1)
         {
+            //error or character ?
+            // std::cout << "WOOOOOOOWerror" << std::endl;
+            std::cout << "Error" << std::endl;
+        }
+        else if (j == 1 && k == 1 && i <= 1)
+        {
+            //float
+            _floatValue = std::stof(str);
+            _intValue = static_cast<int>(_floatValue);
+            _doubleValue = static_cast<double>(_floatValue);
+            _charValue = static_cast<char>(_floatValue);
+            std::cout << "char: ";
+            if (isprint(_charValue)) {
+                std::cout << "'" << _charValue << "'" << std::endl;
+            } else {
+                std::cout << "Conversion not displayable" << std::endl;
+            }
+            std::cout << "int: ";
+            if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
+                std::cout << _intValue << std::endl;
+            } else {
+                std::cout << "Conversion not representable by int" << std::endl;
+            }
+            std::string numberStr = std::to_string(_floatValue);
+            if (!numberStr.find("."))
+            {
+                std::cout << "Float : "  << _floatValue << ".0f" << std::endl;
+                std::cout << "Double : " << _doubleValue << ".0" << std::endl;
+            }
+            else
+            {
+                std::cout << "Float : "  << _floatValue << "f" << std::endl;
+                std::cout << "Double : " << _doubleValue << std::endl;
+            }
+        }
+        else if (k == 1 && j == 0 && i <= 1)
+        {
+            //double
+            _doubleValue = std::stod(str);
+            _floatValue = static_cast<float>(_doubleValue);
+            _intValue = static_cast<int>(_doubleValue);
+            _charValue = static_cast<char>(_doubleValue);
+            std::cout << "char: ";
+            if (isprint(_charValue)) {
+                std::cout << "'" << _charValue << "'" << std::endl;
+            } else {
+                std::cout << "Conversion not displayable" << std::endl;
+            }
+            std::cout << "int: ";
+            if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
+                std::cout << _intValue << std::endl;
+            } else {
+                std::cout << "Conversion not representable by int" << std::endl;
+            }
+            std::string numberStr = std::to_string(_doubleValue);
+            if (!numberStr.find("."))
+            {
+                    std::cout << "float: ";
+                if (_floatValue >= std::numeric_limits<float>::lowest() && _floatValue <= std::numeric_limits<float>::max()) {
+                    std::cout << _floatValue << ".0f" << std::endl;
+                } else {
+                    std::cout << "Conversion not representable by float" << std::endl;
+                }
+                std::cout << "Double : " << _doubleValue << ".0" <<std::endl;
+            }
+            else
+            {
+                std::cout << "float: ";
+                if (_floatValue >= std::numeric_limits<float>::lowest() && _floatValue <= std::numeric_limits<float>::max()) {
+                    std::cout << _floatValue << "f" << std::endl;
+                } else {
+                    std::cout << "Conversion not representable by float" << std::endl;
+                }
+                std::cout << "Double : " << _doubleValue << std::endl;
+            }
+        }
+        else if (c > 0 && i == 0 && j == 0)
+        {
+            _charValue = str[1];
+            _intValue = static_cast<int>(_charValue);
+            _floatValue = static_cast<float>(_charValue);
+            _doubleValue = static_cast<double>(_charValue);
+            std::cout << "char: '" << _charValue << "'" << std::endl;
+            std::cout << "int: " << _intValue << std::endl;
+            std::cout << "float: " << _floatValue  << ".0f" << std::endl;
+            std::cout << "double: " << _doubleValue << std::endl;
+        }
+        else if (k == 0 && i <= 1 && j == 0)
+        {
+            //int
+            std::cout << "WOOOOOOOW int" << std::endl;
+            _intValue = stoi(str);
+            _floatValue = static_cast<float>(_intValue);
+            _doubleValue = static_cast<double>(_intValue);
+            _charValue = static_cast<char>(_intValue);
+            std::cout << "char: ";
+            if (isprint(_charValue)) {
+                std::cout << "'" << _charValue << "'" << std::endl;
+            } else {
+                std::cout << "Conversion not displayable" << std::endl;
+            }
+            std::cout << "int: ";
+            if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
+                std::cout << _intValue << std::endl;
+            } else {
+                std::cout << "Conversion not representable by int" << std::endl;
+            }
             std::cout << "Float : "  << _floatValue << ".0f" << std::endl;
             std::cout << "Double : " << _doubleValue << ".0" << std::endl;
         }
-        else
-        {
-            std::cout << "Float : "  << _floatValue << "f" << std::endl;
-            std::cout << "Double : " << _doubleValue << std::endl;
-        }
-    }
-    else if (k == 1 && j == 0 && i <= 1)
-    {
-        //double
-        _doubleValue = std::stod(str);
-        _floatValue = static_cast<float>(_doubleValue);
-        _intValue = static_cast<int>(_doubleValue);
-        _charValue = static_cast<char>(_doubleValue);
-        std::cout << "char: ";
-        if (isprint(_charValue)) {
-            std::cout << "'" << _charValue << "'" << std::endl;
-        } else {
-            std::cout << "Conversion not displayable" << std::endl;
-        }
-        std::cout << "int: ";
-        if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
-            std::cout << _intValue << std::endl;
-        } else {
-            std::cout << "Conversion not representable by int" << std::endl;
-        }
-        std::string numberStr = std::to_string(_doubleValue);
-        if (!numberStr.find("."))
-        {
-                std::cout << "float: ";
-            if (_floatValue >= std::numeric_limits<float>::lowest() && _floatValue <= std::numeric_limits<float>::max()) {
-                std::cout << _floatValue << ".0f" << std::endl;
-            } else {
-                std::cout << "Conversion not representable by float" << std::endl;
-            }
-            std::cout << "Double : " << _doubleValue << ".0" <<std::endl;
-        }
-        else
-        {
-            std::cout << "float: ";
-            if (_floatValue >= std::numeric_limits<float>::lowest() && _floatValue <= std::numeric_limits<float>::max()) {
-                std::cout << _floatValue << "f" << std::endl;
-            } else {
-                std::cout << "Conversion not representable by float" << std::endl;
-            }
-            std::cout << "Double : " << _doubleValue << std::endl;
-        }
-    }
-    else if (c > 0 && i == 0 && j == 0)
-    {
-        _charValue = str[1];
-        _intValue = static_cast<int>(_charValue);
-        _floatValue = static_cast<float>(_charValue);
-        _doubleValue = static_cast<double>(_charValue);
-        std::cout << "char: '" << _charValue << "'" << std::endl;
-        std::cout << "int: " << _intValue << std::endl;
-        std::cout << "float: " << _floatValue  << ".0f" << std::endl;
-        std::cout << "double: " << _doubleValue << std::endl;
-    }
-    else if (k == 0 && i <= 1 && j == 0)
-    {
-        //int
-        std::cout << "WOOOOOOOW int" << std::endl;
-        _intValue = stoi(str);
-        _floatValue = static_cast<float>(_intValue);
-        _doubleValue = static_cast<double>(_intValue);
-        _charValue = static_cast<char>(_intValue);
-        std::cout << "char: ";
-        if (isprint(_charValue)) {
-            std::cout << "'" << _charValue << "'" << std::endl;
-        } else {
-            std::cout << "Conversion not displayable" << std::endl;
-        }
-        std::cout << "int: ";
-        if (_intValue >= std::numeric_limits<int>::min() && _intValue <= std::numeric_limits<int>::max()) {
-            std::cout << _intValue << std::endl;
-        } else {
-            std::cout << "Conversion not representable by int" << std::endl;
-        }
-        std::cout << "Float : "  << _floatValue << ".0f" << std::endl;
-        std::cout << "Double : " << _doubleValue << ".0" << std::endl;
     }
 }
 
