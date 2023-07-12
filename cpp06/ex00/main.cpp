@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:35:30 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 11:26:45 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/12 13:46:20 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ int main(int ac, char **av)
     // (void)av;
     if (ac <= 2)
     {
-        ScalarConverter::parseType(av[1]);
-        // ScalarConverter::toChar(str);
-        // ScalarConverter::toInt(str);
-        // ScalarConverter::toFloat(str);
-        // ScalarConverter::toDouble(str);
+        try {
+            ScalarConverter::parseType(av[1]);
+        } catch (std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
     }
     else
         std::cout << "Too many arguments" << std::endl;
