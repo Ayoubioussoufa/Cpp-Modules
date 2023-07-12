@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:56:05 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 15:52:08 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 18:28:04 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ class Cat : public Animal
         Cat& operator=(const Cat& other);
         void    setType();
         void    makeSound() const;
-        ~Cat();
+        virtual ~Cat();
 };

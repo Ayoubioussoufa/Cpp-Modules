@@ -6,13 +6,14 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 12:10:08 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 15:52:27 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:19:03 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#pragma once
+#include "WrongAnimal.hpp"
 
-class WrongCat : public Animal
+class WrongCat : public WrongAnimal
 {
     public:
         WrongCat();

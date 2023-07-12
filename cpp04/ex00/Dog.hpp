@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:56:10 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 15:51:36 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 18:28:08 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ class Dog : public Animal
         Dog& operator=(const Dog& other);
         void    setType();
         void    makeSound() const;
-        ~Dog();
+        virtual ~Dog();
 };

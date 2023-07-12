@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:35 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 16:03:59 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:20:30 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ Animal& Animal::operator=(const Animal& other)
     if (this != &other)
         this->_type = other._type;
     return *this;
-}
-
-void    Animal::makeSound() const
-{
-    std::cout << "Unknown animal sound." << std::endl;
 }
 
 std::string    Animal::getType() const

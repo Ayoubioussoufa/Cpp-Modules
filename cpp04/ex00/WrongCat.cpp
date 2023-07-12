@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 12:10:05 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 16:02:52 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:43:58 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    WrongCat::setType()
     _type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat& other) : Animal(other)
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
     std::cout << "WrongCat copy constructor called" << std::endl;
 }

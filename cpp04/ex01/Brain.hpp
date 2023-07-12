@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:29:23 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/09 16:13:01 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:38:56 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Brain
 {
     protected:
-        std::string ideas[100];
+        std::string _ideas[100];
     public:
         Brain();
         Brain(const Brain& other);

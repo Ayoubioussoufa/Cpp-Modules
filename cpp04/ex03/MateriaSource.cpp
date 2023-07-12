@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:58:13 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 16:19:20 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:09:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource()
 {
     for (int i = 0; i < 4; i++)
-        materias[i] = nullptr;
+        _materias[i] = NULL;
     std::cout << "Materiasource's default constructor called" << std::endl;
 }
 
@@ -23,10 +23,10 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (other.materias[i] != nullptr)
-            materias[i] = other.materias[i]->clone();
+        if (other._materias[i] != NULL)
+            _materias[i] = other._materias[i]->clone();
         else
-            materias[i] = nullptr;
+            _materias[i] = NULL;
     }
     std::cout << "MateriaSource's copy constructor called"  << std::endl;
 }
@@ -38,22 +38,23 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
     {
         for  (int i = 0; i < 4; i++)
         {
-            delete materias[i];
-            if (other.materias[i] != nullptr)
-                materias[i] = other.materias[i]->clone();
+            delete _materias[i];
+            if (other._materias[i] != NULL)
+                _materias[i] = other._materias[i]->clone();
             else
-                materias[i] = nullptr;
+                _materias[i] = NULL;
         }
     }
+    return *this;
 }
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i < 4; i++)
     {
-        if (materias[i] == nullptr)
+        if (_materias[i] == NULL)
         {
-            materias[i] = m->clone();
+            _materias[i] = m->clone();
             return;
         }
     }
@@ -63,15 +64,15 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (materias[i] != nullptr && materias[i]->getType() == type)
-            return (materias[i]->clone());
+        if (_materias[i] != NULL && _materias[i]->getType() == type)
+            return (_materias[i]->clone());
     }
-    return  nullptr;
+    return  NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-    for (int i = 0; i < 4; ++i)
-        delete materias[i];
+    for (int i = 0; i < 4; i++)
+        delete _materias[i];
     std::cout << "Materiasource's destructor called" << std::endl;
 }

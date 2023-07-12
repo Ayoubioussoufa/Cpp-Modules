@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:07:25 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 14:17:32 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:18:08 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Cure : public AMateria
+class Cure : virtual public AMateria
 {
     public:
         Cure();

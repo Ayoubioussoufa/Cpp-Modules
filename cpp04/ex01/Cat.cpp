@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:32 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/15 11:06:40 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:57:31 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 Cat::Cat()
 {
     this->setType();
-    _brain = new Brain();
+    try {
+        _brain = new Brain();
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     std::cout << "Cat initialised" << std::endl;
 }
 
@@ -26,8 +32,13 @@ void    Cat::setType()
 
 Cat::Cat(const Cat& other)
 {
-    _brain = new Brain;
-    _brain = other._brain;
+    try {
+        _brain = new Brain(*(other._brain));
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     this->setType();
     std::cout << "Cat copy constructor called" << std::endl;
 }
@@ -36,7 +47,17 @@ Cat& Cat::operator=(const Cat& other)
 {
     std::cout << "Cat assignation operator called" << std::endl;
     if (this != &other)
+    {
         this->_type = other._type;
+        delete _brain;
+        try {
+            _brain = new Brain(*(other._brain));
+        }
+        catch (const std::bad_alloc& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+    }
     return *this;
 }
 
@@ -48,5 +69,5 @@ void    Cat::makeSound() const
 Cat::~Cat()
 {
     delete _brain;
-    std::cout << "Dog Destroyed" << std::endl;
+    std::cout << "Cat Destroyed" << std::endl;
 }

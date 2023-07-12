@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:07:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 14:20:49 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:39:00 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Cure::Cure()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Cure Default constructor called" << std::endl;
+    this->setType();
 }
 
 Cure::Cure(const Cure& cure) : AMateria(cure)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Cure's Copy constructor called" << std::endl;
+    this->setType();
 }
 
 Cure& Cure::operator=(const Cure& cure)
@@ -47,5 +49,5 @@ void Cure::use(ICharacter& target)
 
 Cure::~Cure()
 {
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "Ice's destructor called" << std::endl;
 }

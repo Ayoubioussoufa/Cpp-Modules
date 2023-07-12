@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:58:15 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 16:36:16 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:08:40 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class MateriaSource : public IMateriaSource
 {
     private:
-        AMateria* materias[4];
+        AMateria* _materias[4];
     public:
         MateriaSource();
         MateriaSource(const MateriaSource& other);

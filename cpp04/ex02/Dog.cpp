@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:25 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 16:55:38 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:30:58 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 Dog::Dog()
 {
     this->setType();
-    _brain = new Brain();
+    try {
+        _brain = new Brain;
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     std::cout << "Dog initialised" << std::endl;
 }
 
@@ -26,8 +32,14 @@ void    Dog::setType()
 
 Dog::Dog(const Dog& other)
 {
-    _brain = new Brain;
-    _brain = other._brain;
+    try {
+        _brain = new Brain(*other._brain);
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    this->setType();
     std::cout << "Dog copy constructor called" << std::endl;
 }
 

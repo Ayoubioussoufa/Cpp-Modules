@@ -6,14 +6,14 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:36:57 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/11 15:57:53 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:14:28 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
     protected:
@@ -26,5 +26,6 @@ class AMateria
         AMateria& operator=(AMateria const& other);
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
-        ~AMateria();
+        virtual ~AMateria();
 };
+#include "ICharacter.hpp"

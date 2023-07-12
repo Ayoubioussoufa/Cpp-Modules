@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:57:25 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/15 11:07:40 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:11:02 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 Dog::Dog()
 {
     this->setType();
-    _brain = new Brain();
+    try {
+        _brain = new Brain();
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     std::cout << "Dog initialised" << std::endl;
 }
 
@@ -26,8 +32,13 @@ void    Dog::setType()
 
 Dog::Dog(const Dog& other)
 {
-    _brain = new Brain;
-    _brain = other._brain;
+    try {
+        _brain = new Brain(*(other._brain));
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     this->setType();
     std::cout << "Dog copy constructor called" << std::endl;
 }
@@ -36,7 +47,17 @@ Dog& Dog::operator=(const Dog& other)
 {
     std::cout << "Dog assignation operator called" << std::endl;
     if (this != &other)
+    {
         this->_type = other._type;
+        delete _brain;
+        try {
+            _brain = new Brain(*(other._brain));
+        }
+        catch (const std::bad_alloc& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+    }
     return *this;
 }
 

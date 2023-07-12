@@ -1,7 +1,7 @@
 NAME = Animal
-CC = g++
+CC = c++
 RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Animal.cpp
 OBJ = $(SRC:.cpp=.o)
 
