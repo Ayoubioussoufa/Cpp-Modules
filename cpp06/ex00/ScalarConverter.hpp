@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:57 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 09:27:59 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:28:38 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 #include <exception>
 #include <sstream>
 #include <string>
+#include <cctype>
 
 class ScalarConverter
 {
     private:
+        static int _intValue;
+        static float _floatValue;
+        static double _doubleValue;
+        static char _charValue;
         ScalarConverter();
         ScalarConverter(ScalarConverter& scalar);
         ScalarConverter& operator=(const ScalarConverter& other);
@@ -32,5 +37,9 @@ class ScalarConverter
         static float toFloat(std::string str);
         static double toDouble(std::string str);
         static char toChar(std::string str);
+        static int getInt(void);
+        static float getFloat(void);
+        static double getDouble(void);
+        static char getChar(void);
         ~ScalarConverter();  
 };

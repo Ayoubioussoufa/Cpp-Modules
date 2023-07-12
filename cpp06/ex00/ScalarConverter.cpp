@@ -6,11 +6,16 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:49 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 09:40:17 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:38:10 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+int ScalarConverter::_intValue = 0;
+float ScalarConverter::_floatValue = 0.0f;
+double ScalarConverter::_doubleValue = 0.0;
+char ScalarConverter::_charValue = '\0';
 
 char ScalarConverter::parseChar(std::string str) {
     int i = std::stoi(str);
@@ -41,10 +46,21 @@ double ScalarConverter::parseDouble(std::string str) {
 }
 
 std::string ScalarConverter::parseType(std::string str) {
-    (void)str;
-    std::cout << "NO Parsing yet" << std::endl;
-    std::string ss(str);
-    return ss;
+    if (str.compare("-inff") || str.compare("+inff") str.compare("nanf")) {
+        
+    }
+    else if (str.compare("-inf") || str.compare("+inf") str.compare("nan")) {
+        
+    }
+    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+    {
+        if (!isdigit(*it))
+        {
+            if (*it == '.')
+                continue ;
+            else if (*it == 'f')
+        }
+    }
 }
 
 double ScalarConverter::toDouble(std::string value) {
@@ -81,4 +97,24 @@ int ScalarConverter::toInt(std::string value) {
         std::cerr << e.what() << std::endl;
         return -1;
     }
+}
+
+int ScalarConverter::getInt(void)
+{
+    return _intValue;
+}
+
+float ScalarConverter::getFloat(void)
+{
+    return _floatValue;
+}
+
+double ScalarConverter::getDouble(void)
+{
+    return _doubleValue;
+}
+
+char ScalarConverter::getChar(void)
+{
+    return _charValue;
 }
