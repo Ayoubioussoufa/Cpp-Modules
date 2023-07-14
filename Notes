@@ -150,3 +150,34 @@ Member Functions                            Static Member Functions
 11. Lifetime tied to object's lifetime     || 11. Lifetime independent of object's lifetime
 12. Can modify non-static member variables || 12. Cannot modify non-static member variables
 
+*CONTAINERS: In C++, the Standard Template Library (STL) provides several types of containers. Here are some of the commonly used container types:
+
+Sequence Containers:
+
+vector: A dynamic array that can resize itself. It provides efficient random access but can be slower for insertions and deletions in the middle.
+list: A doubly-linked list. It allows fast insertions and deletions anywhere in the list but lacks efficient random access.
+deque: A double-ended queue that allows efficient insertion and deletion at both ends. It provides random access like vectors.
+array: A fixed-size array with a static size that is determined at compile-time.
+------------------------------------------------------------------------------------------------------------
+Associative Containers:
+
+set: A container that stores unique elements in a sorted order. It uses a binary search tree internally.
+multiset: Similar to a set, but allows duplicate elements.
+map: A container that stores key-value pairs in a sorted order based on the keys. It uses a binary search tree internally.
+multimap: Similar to a map, but allows duplicate keys.
+------------------------------------------------------------------------------------------------------------
+
+Unordered Associative Containers:
+
+unordered_set: A container that stores unique elements in an unordered manner using a hash table.
+unordered_multiset: Similar to unordered_set, but allows duplicate elements.
+unordered_map: A container that stores key-value pairs in an unordered manner using a hash table.
+unordered_multimap: Similar to unordered_map, but allows duplicate keys.
+------------------------------------------------------------------------------------------------------------
+
+Container Adapters:
+
+stack: A container that provides a Last-In-First-Out (LIFO) behavior. It is implemented using a deque or a list by default.
+queue: A container that provides a First-In-First-Out (FIFO) behavior. It is implemented using a deque or a list by default.
+priority_queue: A container that provides access to the maximum (or minimum) element in logarithmic time. It is implemented using a heap data structure.
+Each container type has its own characteristics, performance trade-offs, and specific use cases. Choosing the appropriate container depends on the requirements of your program, such as the desired operations, performance considerations, and the uniqueness of elements.
