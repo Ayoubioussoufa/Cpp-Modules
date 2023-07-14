@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:39:55 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 16:59:05 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:29:18 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 int main()
 {
-    Span sp = Span(4);
+    MutantStack<int> mstack;
 
-    try {
-        sp.addNumber(6);
-        sp.addNumber(3);
-        sp.addNumber(17);
-        sp.addNumber(9);
-        sp.addNumber(11);
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl; 
-    }
-    catch (std::string& e)
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
     {
-        std::cout << e << std::endl;
+        std::cout << *it << std::endl;
+        ++it;
     }
+    std::stack<int> s(mstack);
     return 0;
 }
-
- 

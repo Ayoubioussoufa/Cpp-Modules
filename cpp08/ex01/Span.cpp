@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:39:45 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 16:45:22 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:26:03 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,3 +97,9 @@ int    Span::longestSpan()
 }
 
 Span::~Span() {}
+
+/*
+Last but not least, it would be wonderful to fill your Span using a range of iterators.
+Making thousands calls to addNumber() is so annoying. Implement a member function
+to add many numbers to your Span in one call.
+*/

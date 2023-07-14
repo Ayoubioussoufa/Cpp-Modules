@@ -1,4 +1,4 @@
-NAME = functions
+NAME = Mutated
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
