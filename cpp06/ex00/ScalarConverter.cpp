@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:49 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 19:56:27 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:42:32 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ char ScalarConverter::_charValue = '\0';
     // std::cout << "double : " << d << std::endl;
     // return d;
 // }
+
+bool    hasDecimalPoint(double number)
+{
+    int intPart = static_cast<int>(number);
+    double fractionalPart = number - intPart;
+    return fractionalPart != 0.0;
+}
 
 void ScalarConverter::parseType(std::string str) {
     if (!str.compare("-inff") || !str.compare("-inf")) {
@@ -109,11 +116,10 @@ void ScalarConverter::parseType(std::string str) {
             } else {
                 std::cout << "Conversion not representable by int" << std::endl;
             }
-            std::string numberStr = std::to_string(_floatValue);
-            if (!numberStr.find("."))
+            if (!hasDecimalPoint(_floatValue))
             {
                 std::cout << "Float : "  << _floatValue << ".0f" << std::endl;
-                std::cout << "Double : " << _doubleValue << ".0" << std::endl;
+                std::cout << "Double : " << _doubleValue << ".0" <<std::endl;
             }
             else
             {
@@ -140,8 +146,7 @@ void ScalarConverter::parseType(std::string str) {
             } else {
                 std::cout << "Conversion not representable by int" << std::endl;
             }
-            std::string numberStr = std::to_string(_doubleValue);
-            if (!numberStr.find("."))
+            if (!hasDecimalPoint(_doubleValue))
             {
                     std::cout << "float: ";
                 if (_floatValue >= std::numeric_limits<float>::lowest() && _floatValue <= std::numeric_limits<float>::max()) {
@@ -176,7 +181,6 @@ void ScalarConverter::parseType(std::string str) {
         else if (k == 0 && i <= 1 && j == 0)
         {
             //int
-            std::cout << "WOOOOOOOW int" << std::endl;
             _intValue = stoi(str);
             _floatValue = static_cast<float>(_intValue);
             _doubleValue = static_cast<double>(_intValue);

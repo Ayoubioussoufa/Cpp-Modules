@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:57 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/12 14:21:33 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/14 07:36:17 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,4 @@ class ScalarConverter
         ~ScalarConverter();  
 };
 
-std::string::iterator& operator>(std::string::iterator &o, ScalarConverter const &i);
+bool    hasDecimalPoint(std::string& number);
