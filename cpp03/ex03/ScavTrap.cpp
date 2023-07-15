@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:38:01 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 15:08:03 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/15 10:02:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
-    _name = name;
     std::cout << "Parametrized ScavTrap " << _name << " constructed." << std::endl;
 }
 

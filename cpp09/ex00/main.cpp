@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 18:11:07 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/15 10:05:02 by aybiouss         ###   ########.fr       */
+/*   Created: 2023/07/15 09:24:13 by aybiouss          #+#    #+#             */
+/*   Updated: 2023/07/15 11:55:02 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "BitcoinExchange.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-    // ScavTrap ash( "Ash" );
-    // FragTrap pe("7md");
-    DiamondTrap s("plop");
-
-    // s.attack("dog");
-    // ash.attack("dog");
-    // pe.attack("dog");
-    // s.whoAmI();
-    // s.highFivesGuys();
-    // ash.attack( "the air" );
-    // ash.takeDamage( 10 );
-    // ash.beRepaired( 10 );
-    // ash.guardGate();
-    // ash.guardGate();
-    // s.attack("earth");
-    // pe.highFivesGuys();
+    if (ac == 2)
+    {
+        std::ifstream	myfile(av[1]); //opened the file in parameters
+		if (!myfile)
+		{
+    		std::cerr << "Error opening file " << av[1] << std::endl;
+    		return 1;
+  		}
+        BitcoinExchange btc;
+        btc.fillMap();
+        btc.done(myfile);
+    }
+    else
+    {
+        std::cerr << "Error: could not open file." << std::endl;
+    }
 }

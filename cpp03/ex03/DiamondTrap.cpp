@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:44:57 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 15:07:17 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/15 10:04:27 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), Sca
     _energyPoints = ScavTrap::_energyPoints;
     _attackDamage = FragTrap::_attackDamage;
     ClapTrap::_name = name + "_clap_name";
+    std::cout << FragTrap::_hitPoints << std::endl;
+       std::cout <<         ScavTrap::_energyPoints << std::endl;
+          std::cout <<      FragTrap::_attackDamage << std::endl;
     _name = name;
 }
 
