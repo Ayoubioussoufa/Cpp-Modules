@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 09:24:13 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/15 15:16:30 by aybiouss         ###   ########.fr       */
+/*   Created: 2023/07/17 11:36:05 by aybiouss          #+#    #+#             */
+/*   Updated: 2023/07/17 12:22:09 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#pragma once
+#include <algorithm>
+#include <stack>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
 
-int main(int ac, char **av)
+class RPN
 {
-    // (void)av;
-    if (ac == 2)
-    {
-        try {
-            BitcoinExchange btc;
-            btc.fillMap();
-            btc.done(av[1]);
-        }
-        catch (std::string& e)
-        {
-            std::cout << e << std::endl;
-        }
-    }
-    else
-    {
-        std::cerr << "Error: could not open file." << std::endl;
-    }
-}
+    private:
+        std::stack<int> _myStack;
+    public:
+        RPN();
+        RPN(const RPN& other);
+        RPN& operator=(const RPN& other);
+        void    fillStack(std::string av);
+        ~RPN();
+};

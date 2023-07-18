@@ -1,8 +1,8 @@
-NAME = Mutated
+NAME = Pmerge
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp MutantStack.cpp
+SRC = main.cpp Pmerge.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
