@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 10:33:43 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:04:59 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main(void)
         Intern someRandomIntern;
         AForm* rrf;
         rrf = someRandomIntern.makeForm("Shrubbery Creation", "Bender");
+        plop.executeForm(*rrf);
+        std::cout << "*****************" << std::endl;
     }
     catch (const Bureaucrat::GradeTooHighException& e)
     {
@@ -52,6 +54,8 @@ int main(void)
         Intern someRandomIntern;
         AForm* rrff;
         rrff = someRandomIntern.makeForm("Robotomy request", "Bender");
+        plop.executeForm(*rrff);
+        std::cout << "*****************" << std::endl;
     }
     catch (const Bureaucrat::GradeTooHighException& e)
     {
@@ -78,6 +82,7 @@ int main(void)
         Intern someRandomIntern;
         AForm* rf;
         rf = someRandomIntern.makeForm("Presidential Pardon", "Bender");
+        plop.executeForm(*rf);
         std::cout << "*****************" << std::endl;
     }
     catch (const Bureaucrat::GradeTooHighException& e)
@@ -95,5 +100,5 @@ int main(void)
     catch (const AForm::GradeTooLowException& e)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
+    } 
 }

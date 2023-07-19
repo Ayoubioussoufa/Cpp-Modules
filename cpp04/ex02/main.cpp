@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:55:00 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/16 11:28:14 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:04:21 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 int main()
 {
     // const Animal* meta = new Animal();
-    const Animal* j = new Dog();
+    const Animal* i = new Dog();
     const Animal* i = new Cat();
     const Animal* k[100];
-
     for (int p = 0; p < 100; p++)
         (p < 50) ? ( k[p] = new Dog()) : (k[p] = new Cat());
     std::cout << j->getType() << " " << std::endl;
