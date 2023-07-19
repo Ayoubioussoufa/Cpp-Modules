@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:55:44 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 11:28:06 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:59:56 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@ class Array
 {
     private:
         T*   _element;
+        unsigned int _size;
     public:
-        Array() { _element = new T[0];}
+    class OutOfBoundsException : public std::exception {
+        public:
+            virtual const char* what() const throw() { return "Index is out of bounds";}
+    };
+        Array() : _element(new T()), _size(0) {}
         Array(unsigned int n)
         {
             _element = new T[n];
+            _size = n;
             // std::cout << "Parametrized Constructor called" << std::endl;
         }
         Array(const Array& other)
@@ -58,9 +64,7 @@ class Array
         }
         unsigned int size()
         {
-            static int i(0);
-            i++;
-            return i;
+            return _size;
         }
         ~Array()
         {
@@ -68,3 +72,10 @@ class Array
             delete [] _element;
         }
 };
+
+// template < typename T >
+// std::ostream& operator<<( std::ostream& out, const Array<T>& arr ) {
+//     for ( unsigned int i( 0 ); i < arr.size(); i++ )
+//         out << arr[i] << " ";
+//     return out;
+// }

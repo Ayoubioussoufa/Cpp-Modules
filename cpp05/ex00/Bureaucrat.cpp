@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 08:19:15 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 18:35:21 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name), _grade(
 {
     std::cout << "Parametrized constructor of Bureaucrat is called." << std::endl;
     if (_grade < 1) 
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     else if (_grade > 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bur) : _name(bur.getName()), _grade(bur.getGrade())

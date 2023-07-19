@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 08:49:32 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:38:04 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ Form::~Form()
 
 void Form::beSigned(const Bureaucrat& bur)
 {
-    if (bur.getGrade() <= _requiredGrade)
+    if (bur.getGrade() <= _grade)
         _signed = true;
     else
         throw GradeTooLowException();

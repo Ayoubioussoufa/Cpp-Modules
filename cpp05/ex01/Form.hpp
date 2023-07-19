@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 08:34:01 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:47:48 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Form
         bool _signed;
         const int _grade;
         const int _requiredGrade;
+        Form();
     public:
         class GradeTooHighException : public std::exception {
                 public:
@@ -33,7 +34,6 @@ class Form
                     return "Grade is too low";
                 } 
             };
-        Form();
         Form(std::string name, int grade, int requiredGrade);
         Form(const Form& form);
         Form& operator=(const Form& form);

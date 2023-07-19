@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 09:33:38 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 11:05:14 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:49:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ AForm* Intern::makeForm(const std::string& nameForm, const std::string& targetFo
         default:
             std::cout << "Intern couldn't create form " << std::endl;
     }
-    return NULL;
+    return nullptr;
 }
 
 Intern::~Intern()

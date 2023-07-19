@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:52:43 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:50:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,26 @@ class AForm
         bool _signed;
         int _grade;
         int _requiredGrade;
+        AForm();
     public:
         class GradeTooHighException : public std::exception {
                 public:
-                    const char* what() const throw(){
+                    const char* what() const throw() {
                         return "Grade is too high";
                 } 
             };
-            class GradeTooLowException : public std::exception {
-               public:
-                const char* what() const throw(){
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw() {
                     return "Grade is too low";
                 } 
             };
-        AForm();
+        class NotSignedException : public std::exception {
+            public:
+                const char* what() const throw() {
+                    return "Form not signed";
+                }
+            };
         AForm(std::string name, int grade, int requiredGrade);
         AForm(const AForm& AForm);
         AForm& operator=(const AForm& AForm);

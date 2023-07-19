@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 10:01:35 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:41:01 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,28 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    static int i(1);
-    AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
-    if (AForm::getSigned())
-    {
+    // static int i(1);
+    // AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
+    // if (AForm::getSigned())
+    // {
+    //     if (i % 2)
+    //         std::cout << "The " << _target << " has been robotomized successfully" << std::endl;
+    //     else
+    //         std::cout << "The " << _target << " robotomy has failed" << std::endl;
+    //     i++;
+    // }
+    // else
+    //     throw "Try harder next time Bureaucrat";
+    if (executor.getGrade() > this->getRequiredGrade())
+        throw Form::GradeTooLowException();
+    else {
+        static int  i;
         if (i % 2)
             std::cout << "The " << _target << " has been robotomized successfully" << std::endl;
         else
             std::cout << "The " << _target << " robotomy has failed" << std::endl;
         i++;
     }
-    else
-        throw "Try harder next time Bureaucrat";
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()

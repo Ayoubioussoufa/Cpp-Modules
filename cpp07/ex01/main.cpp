@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:01:42 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 09:55:01 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:54:23 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int main()
 {
     int array[5] = {5,6,9,7,8};
-    iter(array, 5, function);
+    iter(array, 5, &print);
 }

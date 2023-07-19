@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:02:01 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 09:54:48 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:53:45 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 
 template <typename T>
-void    function(T element)
+void    print(T element)
 {
     std::cout << "Processing : " << element << std::endl;
 }

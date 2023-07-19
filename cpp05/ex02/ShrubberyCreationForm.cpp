@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:48 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 09:24:20 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:46:28 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor) is a C++ type casting operator that allows you to cast away the const qualifier from a pointer or reference. In this case, it's used to remove the const qualifier from the pointer &executor, which is of type const Bureaucrat*. By doing this, we obtain a pointer of type Bureaucrat*
-    if (AForm::getSigned())
-    {
+    if ( this->getSigned() == false )
+        throw Form::NotSignedException();
+    else if (executor.getGrade() > this->getRequiredGrade())
+        throw Form::GradeTooLowException();
+    // AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor) is a C++ type casting operator that allows you to cast away the const qualifier from a pointer or reference. In this case, it's used to remove the const qualifier from the pointer &executor, which is of type const Bureaucrat*. By doing this, we obtain a pointer of type Bureaucrat*
+    // if (AForm::getSigned())
+    // {
         std::string plop = _target + "_shrubbery";
         std::ofstream   outFile(plop.c_str()); //.c_str() allows you to convert std::string to const char* when interaction with functions that expect C-style strings.
         if (!outFile)
@@ -57,9 +61,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
                     " ***********\n" 
                     "*************\n" 
                     "     ||| " << std::endl;
-    }
-    else
-        throw "Try harder next time Bureaucrat";
+    outFile.close();
+    // else
+    //     throw "Try harder next time Bureaucrat";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

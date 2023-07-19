@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:20:03 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 09:43:14 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:42:47 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,18 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
-    if (AForm::getSigned())
-    {
-        std::cout << "The " << _target << " has been pardoned by Zaphod Beeblebox" <<std::endl;
+    // AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
+    // if (AForm::getSigned())
+    // {
+    //     std::cout << "The " << _target << " has been pardoned by Zaphod Beeblebox" <<std::endl;
+    // }
+    // else
+    //     throw "Try harder next time Bureaucrat";
+    if (executor.getGrade() > this->getRequiredGrade())
+        throw Form::GradeTooLowException();
+    else {
+        std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
-    else
-        throw "Try harder next time Bureaucrat";
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
