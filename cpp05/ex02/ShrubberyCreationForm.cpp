@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:48 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 10:06:06 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:24:20 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     if (AForm::getSigned())
     {
         std::string plop = _target + "_shrubbery";
-        std::ofstream   outFile(plop.c_str()); //.c_str() allows you to convert std::string to const char* when interaction with functions or APIs that expect C-style strings.
+        std::ofstream   outFile(plop.c_str()); //.c_str() allows you to convert std::string to const char* when interaction with functions that expect C-style strings.
         if (!outFile)
         {
             std::cerr << "Failed to open file: " << outFile << std::endl;

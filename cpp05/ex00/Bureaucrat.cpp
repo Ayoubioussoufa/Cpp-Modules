@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/13 17:25:10 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 08:19:15 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat()
     std::cout << "Default constructor of Bureaucrat is called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name), _grade(grade)
 {
     std::cout << "Parametrized constructor of Bureaucrat is called." << std::endl;
     if (_grade < 1) 
@@ -26,18 +26,15 @@ Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name), _grade(grade)
         throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bur)
+Bureaucrat::Bureaucrat(const Bureaucrat& bur) : _name(bur.getName()), _grade(bur.getGrade())
 {
     std::cout << "Copy constructor of Bureaucrat called" << std::endl;
-    if (this != &bur)
-        *this = bur;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
 {
     std::cout << "Copy assignment operator of Bureaucrat called" << std::endl;
-    this->_name = bur.getName();
-    this->_grade = bur.getGrade();
+    _grade = bur.getGrade();
     return *this;
 }
 

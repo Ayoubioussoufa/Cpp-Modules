@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 11:04:23 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:33:43 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,86 @@
 
 int main(void)
 {
-    try
+    try 
     {
         ShrubberyCreationForm form1("me");
-        Bureaucrat plop(1, "AHMEAD");
-        form1.execute(plop);
-        std::cout << "-------------" << std::endl;
-        RobotomyRequestForm form2("moi");
-        form2.execute(plop);
-        std::cout << "-------------" << std::endl;
-        form2.execute(plop);
-        std::cout << "-------------" << std::endl;
-        PresidentialPardonForm form3("moiiiity");
-        form3.execute(plop);
-        std::cout << "-------------" << std::endl;
+        std::cout << form1 << std::endl;
+        Bureaucrat plop(1, "AHMED");
+        plop.executeForm(form1);
         Intern someRandomIntern;
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("Presidential Pardon", "Bender");
-        std::cout << "-------------" << std::endl;
+        rrf = someRandomIntern.makeForm("Shrubbery Creation", "Bender");
     }
-    catch(const std::exception& e)
+    catch (const Bureaucrat::GradeTooHighException& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
-    
+    catch (const Bureaucrat::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooHighException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    std::cout << "*****************" << std::endl;
+    try 
+    {
+        Bureaucrat plop(1, "AHMED");
+        RobotomyRequestForm form2("Robotomy");
+        std::cout << form2 << std::endl;
+        plop.executeForm(form2);
+        std::cout << "-------------" << std::endl;
+        plop.executeForm(form2);
+        Intern someRandomIntern;
+        AForm* rrff;
+        rrff = someRandomIntern.makeForm("Robotomy request", "Bender");
+    }
+    catch (const Bureaucrat::GradeTooHighException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooHighException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    std::cout << "*****************" << std::endl;
+    try {
+        Bureaucrat plop(1, "AHMED");
+        PresidentialPardonForm form3("Presidential");
+        std::cout << form3 << std::endl;
+        plop.executeForm(form3);
+        Intern someRandomIntern;
+        AForm* rf;
+        rf = someRandomIntern.makeForm("Presidential Pardon", "Bender");
+        std::cout << "*****************" << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooHighException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooHighException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
 }

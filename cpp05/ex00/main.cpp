@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:32:45 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 08:07:19 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
     }
     try
     {
-        Bureaucrat bureau(149, "PLOP");
+        Bureaucrat bureau(150, "PLOP");
         std::cout << bureau << std::endl;
         bureau.decrementGrade();
     }

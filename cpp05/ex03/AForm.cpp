@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:52:30 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:28:25 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ std::ostream& operator<<(std::ostream& o, AForm& AForm)
     return (o << "AForm named " << AForm.getName()
         << ", the required Grade to sign is: " << AForm.getGrade()
         << ", the reaquired Grade to execute is: " << AForm.getRequiredGrade()
-        << "Signature: " << AForm.getSigned());
+        << ", Signature: " << AForm.getSigned());
 }

@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:53:11 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:01:35 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    static int i;
+    static int i(1);
     AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
     if (AForm::getSigned())
     {

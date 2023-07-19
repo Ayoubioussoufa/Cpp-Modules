@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:52:30 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:02:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ AForm::AForm() : _signed(false)
 
 AForm::AForm(std::string name, int grade, int requiredGrade) : _name(name), _signed(false), _grade(grade), _requiredGrade(requiredGrade)
 {
-    std::cout << "Parametrized Constructor called" << std::endl;
+    std::cout << "Parametrized Constructor of Aform called" << std::endl;
 }
 
 AForm::AForm(const AForm& AForm)
@@ -82,6 +82,6 @@ std::ostream& operator<<(std::ostream& o, AForm& AForm)
 {
     return (o << "AForm named " << AForm.getName()
         << ", the required Grade to sign is: " << AForm.getGrade()
-        << ", the reaquired Grade to execute is: " << AForm.getRequiredGrade()
-        << "Signature: " << AForm.getSigned());
+        << ", the required Grade to execute is: " << AForm.getRequiredGrade()
+        << ", Signature: " << AForm.getSigned());
 }
