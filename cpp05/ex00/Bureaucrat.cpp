@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 18:35:21 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:23:30 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat()
 {
-    std::cout << "Default constructor of Bureaucrat is called." << std::endl;
+    // std::cout << "Default constructor of Bureaucrat is called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name), _grade(grade)
 {
-    std::cout << "Parametrized constructor of Bureaucrat is called." << std::endl;
+    // std::cout << "Parametrized constructor of Bureaucrat is called." << std::endl;
     if (_grade < 1) 
         throw Bureaucrat::GradeTooHighException();
     else if (_grade > 150)
@@ -64,7 +64,7 @@ void Bureaucrat::decrementGrade()
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Destructor of Bureaucrat is called." << std::endl;
+    // std::cout << "Destructor of Bureaucrat is called." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &o, Bureaucrat& bur)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:14:27 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:47:42 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:24:35 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Bureaucrat
 {
     private:
-        std::string _name;
+        const std::string _name;
         int _grade;
         Bureaucrat();
     public:

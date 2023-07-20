@@ -6,16 +6,16 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:53:11 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 08:24:22 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm()
-{
-    std::cout << "Default constructor of RobotomyRequestForm called" << std::endl;
-}
+// RobotomyRequestForm::RobotomyRequestForm()
+// {
+//     std::cout << "Default constructor of RobotomyRequestForm called" << std::endl;
+// }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45), _target(target)
 {

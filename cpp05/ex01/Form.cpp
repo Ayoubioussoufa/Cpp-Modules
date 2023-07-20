@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:52 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:38:04 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:28:39 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,12 @@ Form::Form(std::string name, int grade, int requiredGrade) : _name(name), _signe
 Form::Form(const Form& form) : _name(form.getName()), _signed(form.getSigned()), _grade(form.getGrade()), _requiredGrade(form.getRequiredGrade())
 {
     std::cout << "Copy Constructor called" << std::endl;
-    if (this != &form)
-        *this = form;
 }
 
 Form& Form::operator=(const Form& form)
 {
-    (void)form;
     std::cout << "Assignment operator called" << std::endl;
-    //  _name = form._name;
-    //  _signed = form._signed;
-    //  _grade = form._grade;
-    //  _requiredGrade = form._requiredGrade;
+    _signed = form._signed;
     return *this;
 }
 
@@ -72,7 +66,7 @@ Form::~Form()
 
 void Form::beSigned(const Bureaucrat& bur)
 {
-    if (bur.getGrade() <= _grade)
+    if (bur.getGrade() <= this->_grade)
         _signed = true;
     else
         throw GradeTooLowException();

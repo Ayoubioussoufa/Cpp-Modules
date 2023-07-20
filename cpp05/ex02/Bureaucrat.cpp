@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/06/14 09:40:36 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:42:41 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void Bureaucrat::executeForm(AForm const & form)
 {
     try
     {
+        form.beSignedConst(this);
         form.execute(*this);
         std::cout << this->getName() << " executed " << form.getName() << std::endl;
     }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:45:15 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 08:23:04 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
     {
         ShrubberyCreationForm form1("me");
         std::cout << form1 << std::endl;
-        Bureaucrat plop(1, "AHMED");
+        Bureaucrat plop(150, "AHMED");
         plop.executeForm(form1);
     }
     catch (const Bureaucrat::GradeTooHighException& e)
@@ -36,6 +36,10 @@ int main(void)
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     catch (const AForm::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::NotSignedException& e)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
@@ -65,6 +69,10 @@ int main(void)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
+    catch (const AForm::NotSignedException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
     std::cout << "*****************" << std::endl;
     try {
         Bureaucrat plop(1, "AHMED");
@@ -85,6 +93,10 @@ int main(void)
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
     catch (const AForm::GradeTooLowException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const AForm::NotSignedException& e)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }

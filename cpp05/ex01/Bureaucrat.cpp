@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:27:18 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 08:40:26 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:25:33 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-    std::cout << "Default constructor of Bureaucrat is called." << std::endl;
+    // std::cout << "Default constructor of Bureaucrat is called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name), _grade(grade)
@@ -26,18 +26,15 @@ Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name), _grade(grade)
         throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bur)
+Bureaucrat::Bureaucrat(const Bureaucrat& bur) : _name(bur.getName()), _grade(bur.getGrade())
 {
     std::cout << "Copy constructor of Bureaucrat called" << std::endl;
-    if (this != &bur)
-        *this = bur;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
 {
     std::cout << "Copy assignment operator of Bureaucrat called" << std::endl;
-    this->_name = bur.getName();
-    this->_grade = bur.getGrade();
+    _grade = bur.getGrade();
     return *this;
 }
 
@@ -77,9 +74,6 @@ void Bureaucrat::signForm(Form& form)
         std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch (const Form::GradeTooLowException& e) {
-        std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-    }
-    catch (const Form::GradeTooHighException& e) {
         std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }

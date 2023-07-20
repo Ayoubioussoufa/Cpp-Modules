@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:20:03 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:42:47 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:38:44 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm()
-{
-    std::cout << "Default constructor of PresidentialPardonForm called" << std::endl;
-}
+// PresidentialPardonForm::PresidentialPardonForm()
+// {
+//     std::cout << "Default constructor of PresidentialPardonForm called" << std::endl;
+// }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential", 25, 5), _target(target)
 {
@@ -39,15 +39,10 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    // AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
-    // if (AForm::getSigned())
-    // {
-    //     std::cout << "The " << _target << " has been pardoned by Zaphod Beeblebox" <<std::endl;
-    // }
-    // else
-    //     throw "Try harder next time Bureaucrat";
-    if (executor.getGrade() > this->getRequiredGrade())
-        throw Form::GradeTooLowException();
+    if (!this->getSigned())
+        throw AForm::NotSignedException();
+    else if (executor.getGrade() > this->getRequiredGrade())
+        throw AForm::GradeTooLowException();
     else {
         std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }

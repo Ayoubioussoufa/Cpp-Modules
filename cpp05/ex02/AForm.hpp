@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:25:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:50:33 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:36:10 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Bureaucrat;
 class AForm
 {
     private:
-        std::string _name;
+        const std::string _name;
         bool _signed;
-        int _grade;
-        int _requiredGrade;
+        const int _grade;
+        const int _requiredGrade;
         AForm();
     public:
         class GradeTooHighException : public std::exception {
@@ -48,8 +48,8 @@ class AForm
         AForm& operator=(const AForm& AForm);
         std::string const getName() const;
         int getSigned() const;
-        int getGrade();
-        int getRequiredGrade();
+        int getGrade() const;
+        int getRequiredGrade() const;
         void beSigned(Bureaucrat* bur);
         virtual void execute(Bureaucrat const & executor) const = 0;
         void beSignedConst(Bureaucrat* bur) const;

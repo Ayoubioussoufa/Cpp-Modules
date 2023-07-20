@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:32:33 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 11:04:59 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 08:23:49 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ int main(void)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
+    catch (const AForm::NotSignedException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
     std::cout << "*****************" << std::endl;
     try 
     {
@@ -73,6 +77,10 @@ int main(void)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
+    catch (const AForm::NotSignedException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
     std::cout << "*****************" << std::endl;
     try {
         Bureaucrat plop(1, "AHMED");
@@ -100,5 +108,9 @@ int main(void)
     catch (const AForm::GradeTooLowException& e)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
-    } 
+    }
+    catch (const AForm::NotSignedException& e)
+    {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
 }

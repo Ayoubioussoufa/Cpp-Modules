@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 08:19:58 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:41:01 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 06:39:30 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm()
-{
-    std::cout << "Default constructor of RobotomyRequestForm called" << std::endl;
-}
+// RobotomyRequestForm::RobotomyRequestForm()
+// {
+//     std::cout << "Default constructor of RobotomyRequestForm called" << std::endl;
+// }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy", 72, 45), _target(target)
 {
@@ -39,22 +39,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    // static int i(1);
-    // AForm::beSignedConst(const_cast<Bureaucrat*>(&executor)); //const_cast (temporary remove the const qualifier from the executor)
-    // if (AForm::getSigned())
-    // {
-    //     if (i % 2)
-    //         std::cout << "The " << _target << " has been robotomized successfully" << std::endl;
-    //     else
-    //         std::cout << "The " << _target << " robotomy has failed" << std::endl;
-    //     i++;
-    // }
-    // else
-    //     throw "Try harder next time Bureaucrat";
-    if (executor.getGrade() > this->getRequiredGrade())
-        throw Form::GradeTooLowException();
+    static int  i(1);
+    if (!this->getSigned())
+        throw AForm::NotSignedException();
+    else if (executor.getGrade() > this->getRequiredGrade())
+        throw AForm::NotSignedException();
     else {
-        static int  i;
         if (i % 2)
             std::cout << "The " << _target << " has been robotomized successfully" << std::endl;
         else
