@@ -6,7 +6,7 @@
 /*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:55:44 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/19 21:59:56 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 21:51:39 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,27 @@ class Array
             _size = n;
             // std::cout << "Parametrized Constructor called" << std::endl;
         }
-        Array(const Array& other)
+        Array(const Array& other) : _element( new T[other.size()] ), _size(other.size() )
         {
-            T j(0);
-            while (other._element[j])
-                j++;
-            _element = new T[j];
-            *this = other;
+            for ( unsigned int i( 0 ); i < _size; i++ )
+                _element[i] = other._element[i];
             // std::cout << "Copy Constructor called" << std::endl;
         }
         Array& operator=(const Array& other)
         {
-            T i(0);
-            // std::cout << "Copy assignment called" << std::endl;
-            if (_element) {
+            if ( this != &other ) {
                 delete [] _element;
-            }
-            T j(0);
-            while (other._element[j])
-                j++;
-            _element = new T[j];
-            while (other._element[i])
-            {
-                _element[i] = other._element[i];
-                i++;
+                _element = new T[other.size()];
+                _size = other._size;
+                for ( unsigned int i( 0 ); i < _size; i++ )
+                    _element[i] = other._element[i];
             }
             return *this;
         }
         T& operator[](int i)
         {
+            if ( i >= _size )
+                throw OutOfBoundsException();
             return (_element[i]);
         }
         unsigned int size()
@@ -73,9 +65,9 @@ class Array
         }
 };
 
-// template < typename T >
-// std::ostream& operator<<( std::ostream& out, const Array<T>& arr ) {
-//     for ( unsigned int i( 0 ); i < arr.size(); i++ )
-//         out << arr[i] << " ";
-//     return out;
-// }
+template < typename T >
+std::ostream& operator<<( std::ostream& out, const Array<T>& arr ) {
+    for ( unsigned int i( 0 ); i < arr.size(); i++ )
+        out << arr[i] << " ";
+    return out;
+}
