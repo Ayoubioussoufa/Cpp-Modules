@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 08:26:19 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 08:32:27 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:46:06 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 class Base
 {
     public:
-        Base();
-        Base* generate(void);
-        void identify(Base* p);
-        void identify(Base& p);
         virtual ~Base();
 };
 

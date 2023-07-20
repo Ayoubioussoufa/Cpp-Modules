@@ -181,3 +181,12 @@ stack: A container that provides a Last-In-First-Out (LIFO) behavior. It is impl
 queue: A container that provides a First-In-First-Out (FIFO) behavior. It is implemented using a deque or a list by default.
 priority_queue: A container that provides access to the maximum (or minimum) element in logarithmic time. It is implemented using a heap data structure.
 Each container type has its own characteristics, performance trade-offs, and specific use cases. Choosing the appropriate container depends on the requirements of your program, such as the desired operations, performance considerations, and the uniqueness of elements.
+
+
+Now, let's talk about the difference between dynamic casting a pointer and a reference:
+
+Dynamic casting a pointer: When you use dynamic_cast with pointers (e.g., dynamic_cast<A*>(p)), it returns a pointer to the target type if the conversion is successful, or it returns nullptr if the conversion fails. This allows you to check the result against nullptr and handle the different cases using if-else statements.
+
+Dynamic casting a reference: When you use dynamic_cast with references (e.g., dynamic_cast<A&>(p)), it behaves differently. If the conversion fails (i.e., the object referred to by the reference is not of the target type), it throws a std::bad_cast exception instead of returning nullptr. This is why the try-catch blocks are used in the original implementation. The try block attempts the dynamic cast, and if it fails, the corresponding catch block prevents the exception from propagating and allows the code to continue checking other types.
+
+n summary, the main difference is how the dynamic_cast behaves with pointers and references in case of failure. With pointers, it returns nullptr, and with references, it throws a std::bad_cast exception. This difference in behavior is what led to the use of try-catch blocks in the original implementation when dealing with references. However, using if-else statements with pointers is generally more straightforward and efficient, as it avoids the overhead of exception handling.
