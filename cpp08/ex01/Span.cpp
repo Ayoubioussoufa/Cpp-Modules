@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aybiouss <aybiouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aybiouss <aybiouss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:39:45 by aybiouss          #+#    #+#             */
-/*   Updated: 2023/07/14 17:26:03 by aybiouss         ###   ########.fr       */
+/*   Updated: 2023/07/24 22:36:26 by aybiouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ Span::Span() {}
 
 Span::Span(unsigned int N) : capacity(N)
 {
-    std::cout << "Parametrized constructor called" << std::endl;
+    // std::cout << "Parametrized constructor called" << std::endl;
 }
 
-Span::Span(const Span& other) : _myvector(other._myvector)
+Span::Span(const Span& other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    *this = other;
 }
 
 Span& Span::operator=(const Span& other)
 {
-    (void)other;
-    // std::cout << "Copy assignment called" << std::endl;
+    if ( this != &other ) {
+        this->capacity = other.capacity;
+        this->_myvector = other._myvector;
+    }
     return *this;
 }
 
